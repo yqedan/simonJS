@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-    <script type="text/javascript" src="build/js/app.js"></script>
-    <title>Ping Pong</title>
-  </head>
-  <body>
-    <h1>&nbsp;&nbsp;Welcome to Simon!</h1>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel='stylesheet' href='styles.css'>
+  <script type="text/javascript" src="build/js/app.js"></script>
+  <title>Simon</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Simon!</h1>
+    <button id="start" class="btn-lg btn-info">Start!</button>
+    <br>
+    <br>
+    <button id="red" class="btn-lg btn-danger">Red</button>
     &nbsp;&nbsp;
-    <button id="start" class="btn btn-info">Start!</button>
-    <h3 id="color"></h3>
-    &nbsp;&nbsp;
-    <button id="red" class="btn btn-danger">Red</button>
-    &nbsp;&nbsp;
-    <button id="green" class="btn btn-success">Green</button>
+    <button id="green" class="btn-lg btn-success">Green</button>
     <br><br>
+    <button id="blue" class="btn-lg btn-primary">Blue</button>
     &nbsp;&nbsp;
-    <button id="blue" class="btn btn-primary">Blue</button>
-    &nbsp;&nbsp;
-    <button id="yellow" class="btn btn-warning">Yellow</button>
-  </body>
+    <button id="yellow" class="btn-lg btn-warning">Yellow</button>
+  </div>
+</body>
 </html>

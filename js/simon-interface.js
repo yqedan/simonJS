@@ -1,17 +1,20 @@
 var Game = require('./../js/simon.js').gameModule;
 
-var game = new Game("hot pink");
-
-console.log(game.skinName);
-var success = false;
-do {
-  success = game.turn();
-} while (success);
-console.log("game over!")
-
-// for (var i = 0; i < 10; i++) {
-//   console.log(game.randomColor());
-// }
-// $(function() {
-//
-// });
+$(function() {
+  $("#start").click(function(){
+    var game = new Game("hot pink");
+    game.flash();
+    $("#red").click(function(){
+      game.evaluateGuess("red");
+    });
+    $("#green").click(function(){
+      game.evaluateGuess("green");
+    });
+    $("#blue").click(function(){
+      game.evaluateGuess("blue");
+    });
+    $("#yellow").click(function(){
+      game.evaluateGuess("yellow");
+    });
+  });
+});

@@ -1,8 +1,7 @@
-var readlineSync = require('readline-sync');
-
 function Game(skinName) {
   this.skinName = skinName;
   this.pattern = [];
+  this.patternIndex = 0;
 }
 
 Game.prototype.randomColor = function() {
@@ -10,25 +9,46 @@ Game.prototype.randomColor = function() {
   return colors[Math.floor((Math.random() * 3) + 0)];
 };
 
-Game.prototype.turn = function(){
+Game.prototype.evaluateGuess = function(guess){
+  if(guess === this.pattern[this.patternIndex]){
+    this.patternIndex++;
+  }else{
+    console.log("you lose!");
+  }
+  if (this.patternIndex === this.pattern.length) {
+    this.patternIndex = 0;
+    this.flash();
+  }
+}
+
+resetButtonColors = function(){
+  $('#red').css( "background-color", "#d9534f" );
+  $('#green').css( "background-color", "#5cb85c" );
+  $('#blue').css( "background-color", "#428bca" );
+  $('#yellow').css( "background-color", "#f0ad4e" );
+}
+
+
+Game.prototype.flash = function(){
   var color = this.randomColor();
   this.pattern.push(color);
-  console.log(this.pattern);
-  for (var i = 0; i < this.pattern.length; i++) {
-    var guess = readlineSync.question('Enter your guess ', {
-      hideEchoBack: false
-    });
-
-    console.log(guess);
-    if (guess === this.pattern[i]) {
-      console.log("correct");
-    }else{
-      console.log("incorrect");
-      return false;
+  var i = 0;
+  var j = 0;
+  var pattern = this.pattern;
+  var id = window.setInterval(function(){
+    if (i % 2 === 0) {
+      resetButtonColors();
+    }else {
+      $('#' + pattern[j]).css( "background-color", "black" );
+      j++;
     }
-
-  }
-  return true;
+    console.log(i + " " + pattern[i]);
+    i++;
+    if (j-1 >= pattern.length) {
+      resetButtonColors();
+      clearInterval(id);
+    }
+  }, 1000);
 }
 
 exports.gameModule = Game;
