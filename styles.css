@@ -1,9 +1,40 @@
 body{
   background-color: slateBlue;
 }
+
 .container{
   text-align: center;
 }
-#red, #green, #blue, #yellow{
 
+.col-md-2{
+  padding: 0px;
+}
+
+#green, #red, #yellow, #blue{
+  padding: 50px;
+  border-radius: 20px;
+  outline:none;
+  border-corner-shape: scoop;
+}
+#green{
+  border-top-left-radius: 175px;
+  border-bottom-right-radius: 0px;
+}
+#red{
+  border-top-right-radius: 175px;
+  border-bottom-left-radius: 0px;
+}
+#yellow{
+  border-bottom-left-radius: 175px;
+  border-top-right-radius: 0px;
+}
+#blue{
+  border-top-left-radius: 0px;
+  border-bottom-right-radius: 175px;
+}
+
+#button-text{
+  width: 90px;
+  height: 90px;
+  margin: 0px;
 }

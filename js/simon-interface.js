@@ -2,7 +2,7 @@ var Game = require('./../js/simon.js').gameModule;
 
 $(function() {
   $("#start").click(function(){
-    var game = new Game("hot pink");
+    var game = new Game();
     game.flash();
     $("#red").click(function(){
       game.evaluateGuess("red");
