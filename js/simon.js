@@ -10,15 +10,18 @@ Game.prototype.randomColor = function() {
 
 Game.prototype.evaluateGuess = function(guess){
   if(guess === this.pattern[this.patternIndex]){
+    window.audio.src = './audio/' + guess + '.mp3';
+    window.audio.play()
     this.patternIndex++;
   }else{
-    alert("you lose!");
+    window.audio.src = './audio/lose.mp3';
+    window.audio.play()
     this.patternIndex = 0;
     this.pattern = [];
   }
   if (this.patternIndex === this.pattern.length) {
     this.patternIndex = 0;
-    this.flash();
+    setTimeout(() => {this.flash()},250);
   }
 };
 
@@ -31,8 +34,12 @@ Game.prototype.flash = function(){
     if (highlight) {
       resetButtonColors();
     }else {
-      $('#' + pattern[i]).css( "background-color", "white" );
-      console.log(i + " " + pattern[i]);
+      if(pattern[i]){
+        $('#' + pattern[i]).css( "background-color", "white" );
+        console.log(i + " " + pattern[i]);
+        window.audio.src = './audio/' + pattern[i] + '.mp3';
+        window.audio.play()
+      }
       i++;
     }
     highlight = !highlight;

@@ -1,8 +1,8 @@
 var Game = require('./../js/simon.js').gameModule;
 
 $(function() {
+  var game = new Game();
   $("#start").click(function(){
-    var game = new Game();
     game.flash();
     $("#red").click(function(){
       game.evaluateGuess("red");

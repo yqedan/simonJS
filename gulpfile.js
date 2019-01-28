@@ -29,7 +29,7 @@ gulp.task("minifyScripts", ["jsBrowserify"], function(){
 });
 
 gulp.task("clean", function(){
-  return del(['build', 'tmp']);
+  return del(['build/**', '!build'], {force:true});
 });
 
 gulp.task("build", ['clean'], function(){
